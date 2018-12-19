@@ -3,32 +3,32 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-let ipPath = 'http://mch.dm.com';
+// let ipPath = 'xxx';
 module.exports = {
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/admin': {
-        target: ipPath,  // 接口域名
-        changeOrigin: true,  //是否跨域
-        pathRewrite: {
-          '^/admin': 'admin'
-        }
-      },
-      '/auth': {
-        target: ipPath,
-        changeOrigin: true, // 是否跨域
-        pathRewrite: {
-          '^/auth': 'auth'
-        }
-      },
-    },
+    // proxyTable: {
+    //   '/admin': {
+    //     target: ipPath,  // 接口域名
+    //     changeOrigin: true,  //是否跨域
+    //     pathRewrite: {
+    //       '^/admin': 'admin'
+    //     }
+    //   },
+    //   '/auth': {
+    //     target: ipPath,
+    //     changeOrigin: true, // 是否跨域
+    //     pathRewrite: {
+    //       '^/auth': 'auth'
+    //     }
+    //   },
+    // },
 
     // Various Dev Server settings
-    host: 'mch.dm.com', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
