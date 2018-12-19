@@ -7,14 +7,20 @@ import App from './App'
 import Home from './components/HelloFromVux'
 import 'lib-flexible/flexible'
 import axios from 'axios'
-import { ToastPlugin } from 'vux'
+import { ToastPlugin, XInput, XButton } from 'vux'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import number from '@/directive/numberHandle/number' // 保留两位小数
+import dbClick from '@/directive/btnClick/clickBtn' // 防止按钮重复点击
+Vue.component('x-input', XInput)
+Vue.component('x-button', XButton)
 // import vux from 'vux'
 Vue.use(VueRouter)
 // Vue.use(vux)
 Vue.use(Element)
 Vue.use(ToastPlugin)
+Vue.use(number)
+Vue.use(dbClick)
 Vue.prototype.$http = axios
 const routes = [{
   path: '/',

@@ -8,8 +8,17 @@
       <cell title="VUX" value="cool" is-link></cell>
     </group>
     <div>
-      <x-button type="primary" @click="login">登陆</x-button>
+      <!--<x-button type="primary" @click="login">登陆</x-button>-->
+
     </div>
+    <group>
+      <x-input v-number="ruleForm.value" v-model="ruleForm.value" placeholder="保留两位小数"></x-input>
+    </group>
+    <!--<box>-->
+      <x-button type="primary" v-db-click @click.native="getInput">点我</x-button>
+    <p>已限制用户多次点击，具体样式依据项目进行修改</p>
+    <!--</box>-->
+
   </div>
 </template>
 
@@ -27,6 +36,9 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
+      ruleForm: {
+        value: ''
+      },
       msg: 'Hello World!'
     }
   },
@@ -40,6 +52,9 @@ export default {
       loginByUsername('admin', 'admin').then(res => {
         console.log(res)
       })
+    },
+    getInput () {
+      console.log(this.ruleForm)
     }
   }
 }
