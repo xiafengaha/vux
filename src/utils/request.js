@@ -1,6 +1,7 @@
 import axios from 'axios'
+import Vue from 'vue'
 import store from '@/store'
-import { Message, MessageBox } from 'element-ui'
+import { MessageBox } from 'element-ui'
 import { showFullScreenLoading, tryHideFullScreenLoading } from './loading'
 // create an axios instance
 const service = axios.create({
@@ -49,11 +50,7 @@ service.interceptors.response.use(
       if (res.code === 401) {
         // console.log(response, 'response')
         if (response.config.url === '/auth/login.json') {
-          Message({
-            message: res.message,
-            type: 'error',
-            duration: 5 * 1000
-          })
+          Vue.$vux.toast.text(res.message)
         } else if (response.config.url === '/admin/me.json') {
           // 不处理
         } else {
@@ -63,17 +60,13 @@ service.interceptors.response.use(
             cancelButtonText: '取消',
             type: 'warning'
           }).then(() => {
-            // store.dispatch('FedLogOut').then(() => {
-            //   location.reload() // 为了重新实例化vue-router对象 避免bug
-            // })
+            store.dispatch('FedLogOut').then(() => {
+              location.reload() // 为了重新实例化vue-router对象 避免bug
+            })
           })
         }
       } else {
-        Message({
-          message: res.message,
-          type: 'error',
-          duration: 5 * 1000
-        })
+        Vue.$vux.toast.text('请求失败')
       }
       return Promise.reject('error')
     } else {
@@ -82,11 +75,7 @@ service.interceptors.response.use(
   },
   error => {
     tryHideFullScreenLoading()
-    Message({
-      message: error.message,
-      type: 'error',
-      duration: 5 * 1000
-    })
+    Vue.$vux.toast.text('请求失败')
     return Promise.reject(error)
     // if (error.config.url === '/auth/logout') {
     //   sessionStorage.clear()
