@@ -27,3 +27,4 @@ npm test
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).<br/>
 vux的loading事件，目前暂未有好的解决方法，所以引用了element的loading事件解决axios请求时候的等待<br/>
 新加入防止按钮重复点击指令以及限制输入正数且保留两位小数限制指令
+加入权限控制指令用法（v-has='"权限"' /v-has='item.role'）一种是知道死的权限，一种是动态的权限
