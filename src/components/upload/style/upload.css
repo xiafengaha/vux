@@ -1,0 +1,37 @@
+  .upload-box input{
+    -moz-opacity:0 ;
+    filter:alpha(opacity: 0);
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+  }
+  .upload-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  
+  }
+  video{
+    height: 155px;
+  }
+  .upload-img-btn{
+    width: 100%;
+    height: 100%;
+  }
+  .upload-icon{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    margin: auto;
+  }
+  
